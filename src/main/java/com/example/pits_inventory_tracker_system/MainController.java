@@ -2,13 +2,23 @@ package com.example.pits_inventory_tracker_system;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
-public class HelloController {
+public class MainController {
+
+
     @FXML
     private Label welcomeText;
 
     @FXML
+    protected Button Button1;
+    @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        Button1.setStyle("fx-background-color: #000000");
     }
+
 }
+
+
+
+

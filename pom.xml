@@ -65,7 +65,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.pits_inventory_tracker_system/com.example.pits_inventory_tracker_system.HelloApplication
+                                com.example.pits_inventory_tracker_system/com.example.pits_inventory_tracker_system.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

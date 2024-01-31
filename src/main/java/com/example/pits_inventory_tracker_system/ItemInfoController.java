@@ -3,14 +3,10 @@ package com.example.pits_inventory_tracker_system;
 import com.example.pits_inventory_tracker_system.utils.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import org.controlsfx.control.action.Action;
+import javafx.print.PageRange;
 
-public class MainController {
-
+public class ItemInfoController {
     PageLoader pageLoader = new PageLoader();
-
     @FXML
     protected void onLocationManagerClick(ActionEvent event) {
         pageLoader.openNewPage(event, "locationManager.fxml");
@@ -33,10 +29,4 @@ public class MainController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
-
-
 }
-
-
-
-

@@ -64,5 +64,66 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
+      <ImageView fitHeight="255.0" fitWidth="249.0" layoutX="177.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/bearmetal.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="button11" layoutX="609.0" layoutY="346.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="118.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Name: " textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="button111" layoutX="603.0" layoutY="407.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="150.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Locations:" textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="button112" layoutX="603.0" layoutY="476.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="148.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Total QTY:" textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="button113" layoutX="603.0" layoutY="727.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="172.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Description:" textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="button114" layoutX="607.0" layoutY="536.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Part#: " textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="button115" layoutX="606.0" layoutY="603.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="130.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Vendor:" textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="button116" layoutX="604.0" layoutY="662.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="141.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Website:" textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

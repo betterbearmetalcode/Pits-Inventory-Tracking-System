@@ -1,10 +1,23 @@
 package com.example.pits_inventory_tracker_system;
 
 import com.example.pits_inventory_tracker_system.utils.PageLoader;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 
-public class ItemsController {
+public class AddItemsController {
+
+    @FXML
+    private ComboBox<String> ComboBox;
+
+    private ObservableList<String> listTest = FXCollections.observableArrayList("option1", "option2", "option3");
+
+    public void initialize() {
+        ComboBox.setItems(listTest);
+    }
+
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -29,6 +42,5 @@ public class ItemsController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
-    @FXML
-    protected void onAddItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "addItems.fxml");}
+
 }

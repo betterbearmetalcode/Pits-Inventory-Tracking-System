@@ -4,7 +4,7 @@ import com.example.pits_inventory_tracker_system.utils.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class ItemsController {
+public class RemoveItemsController {
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -29,6 +29,4 @@ public class ItemsController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
-    @FXML
-    protected void onAddItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "addItems.fxml");}
 }

@@ -1,0 +1,30 @@
+.combo-box > .list-cell{
+    -fx-font-size: 18;
+    -fx-border-width: 0.5;
+    -fx-border-color: #ffffff;
+    -fx-background-color: #0c1012;
+    -fx-prompt-text-fill: #fff112;
+    -fx-text-fill: #fff112;
+    -fx-border-width: 0.5 0.5 0.5 0.5; /* top right bottom left */
+           -fx-border-color: #ffffff #0c1012 #ffffff #ffffff;
+
+}
+.combo-box .arrow {
+    -fx-background-color: #fff112;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #0c1012;
+    -fx-size: 5;
+       -fx-border-width: 0.5 0.5 0.5 0; /* top right bottom left */
+       -fx-border-color: #ffffff #ffffff #ffffff #0c1012;
+}
+.combo-box .list-cell {
+    -fx-background-color: #0c1012; /* Background color of each item in the dropdown menu */
+    -fx-text-fill: #fff112; /* Text color of each item in the dropdown menu */
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #1a1f21; /* Background color of each item on hover in the dropdown menu */
+}
+

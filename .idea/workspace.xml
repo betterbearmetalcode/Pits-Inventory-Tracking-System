@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Pits_Inventory_Tracker_System:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d4f7198c-af78-4130-a77f-f4f12713e147" name="Changes" comment="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages.">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/RemoveItems.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="d232cd48-c598-4647-a1f7-c7daa4905f29" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ZEhZF1kEWS72HF3oXfneIkvvF5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/jamesmonzon/IdeaProjects/Pits Inventory Tracker System/src/main/java/com/example/pits_inventory_tracker_system&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jamesmonzon/IdeaProjects/Pits Inventory Tracker System&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.MainApplication">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.pits_inventory_tracker_system.MainApplication" />
+      <module name="Pits_Inventory_Tracker_System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.pits_inventory_tracker_system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="images in Pits_Inventory_Tracker_System" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pits_Inventory_Tracker_System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="images.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="images" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Pits Inventory Tracker System" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Pits Inventory Tracker System" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApplication" />
+        <item itemvalue="JUnit.images in Pits_Inventory_Tracker_System" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4f7198c-af78-4130-a77f-f4f12713e147" name="Changes" comment="" />
+      <created>1701993202308</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701993202308</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Main page layout essentially finalized, buttons setup for cursor changing.">
+      <option name="closed" value="true" />
+      <created>1705109177824</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705109177824</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages.">
+      <option name="closed" value="true" />
+      <created>1706717163065</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706717163065</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages.">
+      <option name="closed" value="true" />
+      <created>1706827632957</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706827632957</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages.">
+      <option name="closed" value="true" />
+      <created>1706832261458</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706832261458</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages.">
+      <option name="closed" value="true" />
+      <created>1706832520978</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706832520978</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Main page layout essentially finalized, buttons setup for cursor changing." />
+    <MESSAGE value="Main page layout essentially finalized. Many other pages added such as the checkout page, item info page, location manager page, and etc." />
+    <MESSAGE value="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages." />
+  </component>
+</project>

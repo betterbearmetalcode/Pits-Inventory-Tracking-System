@@ -10,7 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4f7198c-af78-4130-a77f-f4f12713e147" name="Changes" comment="Main page has been essentially finished. Added FXML and Controller classes for the checkout, item info, item manger, location manager, seach, and settings pages.">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/RemoveItems.fxml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/CheckinController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/CheckoutManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/checkin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/checkout.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/removeItems.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/stylesheets/backButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/AddItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/AddItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/ItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/ItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/RemoveItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/RemoveItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/utils/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pits_inventory_tracker_system/utils/PageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/addItems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/addItems.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/checkoutManager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/checkoutManager.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/itemsManager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/itemsManager.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pits_inventory_tracker_system/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -29,4 +29,6 @@ public class RemoveItemsController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
+    @FXML
+    protected void onBackButtonClick(ActionEvent event) {pageLoader.openNewPage(event, "itemsManager.fxml");}
 }

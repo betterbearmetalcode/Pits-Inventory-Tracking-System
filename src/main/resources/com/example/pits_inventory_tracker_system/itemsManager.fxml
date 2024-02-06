@@ -81,13 +81,16 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="916.0" layoutY="432.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="350.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Remove Items" textFill="#fff112">
+      <Button layoutX="916.0" layoutY="432.0" mnemonicParsing="false" onAction="#onRemoveItemsClick" prefHeight="92.0" prefWidth="350.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Remove Items" textFill="#fff112">
          <font>
             <Font size="48.0" />
          </font>
          <effect>
             <DropShadow height="255.0" radius="127.0" spread="0.88" width="255.0" />
          </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
     </children>
 </AnchorPane>

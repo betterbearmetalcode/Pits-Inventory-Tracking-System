@@ -4,7 +4,7 @@ import com.example.pits_inventory_tracker_system.utils.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class ItemsController {
+public class CheckoutManagerController {
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -30,7 +30,7 @@ public class ItemsController {
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
     @FXML
-    protected void onAddItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "addItems.fxml");}
+    protected void onCheckoutClick(ActionEvent event) {pageLoader.openNewPage(event, "checkout.fxml");}
     @FXML
-    protected void onRemoveItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "removeItems.fxml");}
+    protected void onCheckinClick(ActionEvent event) {pageLoader.openNewPage(event, "checkin.fxml");}
 }

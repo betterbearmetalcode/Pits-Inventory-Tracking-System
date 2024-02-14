@@ -1,9 +1,10 @@
-module com.example.pits_inventory_tracker_system {
+module org.bearmetal.pits_inventory_tracking_system {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
+    requires java.sql;
 
-    opens com.example.pits_inventory_tracker_system to javafx.fxml;
-    exports com.example.pits_inventory_tracker_system;
+    opens org.bearmetal.pits_inventory_tracking_system to javafx.fxml;
+    exports org.bearmetal.pits_inventory_tracking_system;
 }

@@ -17,11 +17,11 @@ public class DatabaseManager {
     private static HashMap<String, String> tables;
     private static final Object[] emptyParams = {};
 
-    public void setTables(HashMap<String, String> t){
+    public static void setTables(HashMap<String, String> t){
         tables = t;
     }
 
-    public void ensureTables() throws SQLException, IllegalArgumentException{
+    public static void ensureTables() throws SQLException, IllegalArgumentException{
         if (tables == null){
             throw new IllegalArgumentException("'tables' must be set before calling ensureTables!");
         }
@@ -31,13 +31,11 @@ public class DatabaseManager {
             String schema = entry.getValue();
             execNoReturn("CREATE TABLE IF NOT EXISTS " + table + "(" + schema + ")");
         }
-        System.out.println();
+        System.out.println("All required tables exist.");
     }
 
     private static void setParam(PreparedStatement statement, Integer index, Object param) throws SQLException{
-        System.out.println(param.toString());
         if (param instanceof String){
-            System.out.println(param.toString());
             statement.setString(index, param.toString());
         } else if (param instanceof Integer){
             statement.setInt(index, (int) param);

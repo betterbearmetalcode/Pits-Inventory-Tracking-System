@@ -13,7 +13,7 @@ import javafx.util.Duration;
 public class PageLoader {
     public void openNewPage(ActionEvent event, String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("//org/example/pits_inventory_tracking_system/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/bearmetal/pits_inventory_tracking_system/" + fxmlFile));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

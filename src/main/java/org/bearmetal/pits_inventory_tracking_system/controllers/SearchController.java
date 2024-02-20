@@ -1,12 +1,11 @@
-package org.bearmetal.pits_inventory_tracking_system;
+package org.bearmetal.pits_inventory_tracking_system.controllers;
 
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.print.PageRange;
 
-public class ItemInfoController {
+public class SearchController {
     PageLoader pageLoader = new PageLoader();
     @FXML
     protected void onLocationManagerClick(ActionEvent event) {

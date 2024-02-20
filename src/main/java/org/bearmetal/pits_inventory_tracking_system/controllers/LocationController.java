@@ -1,11 +1,11 @@
-package org.bearmetal.pits_inventory_tracking_system;
+package org.bearmetal.pits_inventory_tracking_system.controllers;
 
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class ItemsController {
+public class LocationController {
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -30,8 +30,4 @@ public class ItemsController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
-    @FXML
-    protected void onAddItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "addItems.fxml");}
-    @FXML
-    protected void onRemoveItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "removeItems.fxml");}
 }

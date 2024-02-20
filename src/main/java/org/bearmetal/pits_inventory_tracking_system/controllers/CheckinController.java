@@ -1,11 +1,11 @@
-package org.bearmetal.pits_inventory_tracking_system;
+package org.bearmetal.pits_inventory_tracking_system.controllers;
 
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class CheckoutManagerController {
+public class CheckinController {
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -31,7 +31,5 @@ public class CheckoutManagerController {
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
     @FXML
-    protected void onCheckoutClick(ActionEvent event) {pageLoader.openNewPage(event, "checkout.fxml");}
-    @FXML
-    protected void onCheckinClick(ActionEvent event) {pageLoader.openNewPage(event, "checkin.fxml");}
+    protected void onBackClick(ActionEvent event) {pageLoader.openNewPage(event, "checkoutManager.fxml");}
 }

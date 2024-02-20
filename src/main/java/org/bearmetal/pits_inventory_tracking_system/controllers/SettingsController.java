@@ -1,4 +1,4 @@
-package org.bearmetal.pits_inventory_tracking_system;
+package org.bearmetal.pits_inventory_tracking_system.controllers;
 
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 

@@ -24,6 +24,8 @@ public class MainApplication extends Application {
         }
         HashMap<String, String> tables = new HashMap<String, String>();
         tables.put("locations", "location_id INTEGER PRIMARY KEY, location_name TEXT, is_category INTEGER, parent_category INTEGER");
+        tables.put("items", "item_id INTEGER, item_name TEXT PRIMARY KEY, item_description TEXT, item_quantity INTEGER, item_available INTEGER, item_vendor TEXT, item_part_number TEXT, item_info TEXT, packed INTEGER, location_id INTEGER, photo_path TEXT");
+        tables.put("events", "item_id INTEGER, event_id INTEGER PRIMARY KEY, event_type INTEGER, event_bulk INTEGER, event_timestamp INTEGER, event_desc TEXT, item_delta INTEGER, item_state INTEGER");
         DatabaseManager.setTables(tables);
         DatabaseManager.ensureTables();
         Scene scene = new Scene(fxmlLoader.load(), 1600, 900);

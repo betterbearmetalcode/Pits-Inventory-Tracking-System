@@ -1,24 +1,11 @@
-package org.bearmetal.pits_inventory_tracking_system;
+package org.bearmetal.pits_inventory_tracking_system.controllers;
 
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 
-public class AddItemsController {
-
-    @FXML
-    private ComboBox<String> ComboBox;
-
-    private ObservableList<String> listTest = FXCollections.observableArrayList("option1", "option2", "option3");
-
-    public void initialize() {
-        ComboBox.setItems(listTest);
-    }
-
+public class CheckoutManagerController {
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -44,6 +31,7 @@ public class AddItemsController {
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
     @FXML
-    protected void onBackButtonClick(ActionEvent event) {pageLoader.openNewPage(event, "itemsManager.fxml");}
-
+    protected void onCheckoutClick(ActionEvent event) {pageLoader.openNewPage(event, "checkout.fxml");}
+    @FXML
+    protected void onCheckinClick(ActionEvent event) {pageLoader.openNewPage(event, "checkin.fxml");}
 }

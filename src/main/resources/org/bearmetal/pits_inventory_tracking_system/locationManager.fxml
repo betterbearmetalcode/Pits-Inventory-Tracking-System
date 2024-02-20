@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.LocationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.LocationController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="950.0" stroke="BLACK" strokeType="INSIDE" width="1514.0" />
         <Rectangle fx:id="topBanner" arcHeight="5.0" arcWidth="5.0" fill="#0c1012" height="128.0" layoutX="-16.0" layoutY="-3.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1531.0" />

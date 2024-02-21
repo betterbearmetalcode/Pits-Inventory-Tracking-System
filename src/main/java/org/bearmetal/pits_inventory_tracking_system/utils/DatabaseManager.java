@@ -62,7 +62,6 @@ public class DatabaseManager {
             System.err.println("SQLException while executing statement '" + statement + "'.");
             System.err.println("Rolling back transaction.");
             connection.rollback();
-            throw err;
         }
     }
 
@@ -88,7 +87,7 @@ public class DatabaseManager {
             System.err.println("SQLException while executing statement '" + statement + "'.");
             System.err.println("Rolling back transaction.");
             connection.rollback();
-            throw err;
+            return null;
         }
     }
 

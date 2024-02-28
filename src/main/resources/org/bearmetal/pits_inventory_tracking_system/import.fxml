@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.MainController">
+<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.ImportController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -37,7 +37,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="BOTTOM_CENTER" blendMode="SRC_ATOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCheckoutManagerClick" prefHeight="89.0" prefWidth="183.0" stylesheets="@../../../stylesheets/getStartedButton.css" text="Get Started  &gt;" textAlignment="CENTER" textFill="#fff112" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="importButton" alignment="CENTER" blendMode="SRC_ATOP" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onImportButtonClicked" prefHeight="89.0" prefWidth="183.0" style="-fx-border-width: 1; -fx-border-color: #fff112; -fx-background-radius: 1; -fx-background-color: transparent;" text="Import" textAlignment="CENTER" textFill="#fff112" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="21.0" />
                </font>
@@ -48,7 +48,7 @@
                   <DropShadow height="255.0" radius="127.0" spread="0.94" width="255.0" />
                </effect>
             </Button>
-            <Text fill="#fff112" strokeType="OUTSIDE" strokeWidth="0.0" text="Import data to get started." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+            <Text fill="#fff112" strokeType="OUTSIDE" strokeWidth="0.0" text="Import data to get started." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <font>
                   <Font size="60.0" />
                </font>
@@ -73,7 +73,7 @@
                </effect>
             </Text>
       
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

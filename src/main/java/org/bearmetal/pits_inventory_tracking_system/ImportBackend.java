@@ -26,6 +26,7 @@ public class ImportBackend {
     private static ArrayList<Integer> locationIDWorkingSet = new ArrayList<Integer>();
     private static ArrayList<Integer> itemIDWorkingSet = new ArrayList<Integer>();
     private static Integer currentLocation;
+    private static String previousItemName = "";
 
     private static Integer generateID() {
         Integer id = rand.nextInt(100000000, 999999999);
@@ -72,20 +73,20 @@ public class ImportBackend {
         }
         Object[] params = {itemID, itemName, itemDescription, itemQuantity, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID};
         DatabaseManager.execNoReturn("INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", params);
-        System.out.println("Added item " + itemID);
+        //System.out.println("Added item " + itemID + ", name '" + itemName + "', description '" + itemDescription + "'");
     }
 
     private static void addLocation(Integer locationID, String locationName, Integer isCategory, Integer parentCategory)
             throws SQLException {
         if (doesLocationExist(locationName)){
-            System.out.println("Location exists already.");
+            //System.out.println("Location exists already.");
             return;
         }
         Object[] params = { locationID, locationName, isCategory, parentCategory };
         locationIDWorkingSet.add(locationID);
         DatabaseManager.execNoReturn("INSERT INTO locations VALUES(?, ?, ?, ?)", params);
-        System.out.println("Added location " + locationID);
-        // Probably shouldn't do this but I think it'll work anyways.
+        //System.out.println("Added location " + locationID);
+        previousItemName = "";
         currentLocation = locationID;
     }
 
@@ -107,8 +108,8 @@ public class ImportBackend {
             String parentName = categoryPair[0].strip();
             String childName = categoryPair[1].strip();
             Integer parentID;
-            System.out.println("Parent category: " + parentName);
-            System.out.println("Child category: " + childName);
+            //System.out.println("Parent category: " + parentName);
+            //System.out.println("Child category: " + childName);
             // Do we have a parent category already registered?
             if (!doesLocationExist(parentName)) {
                 // No? Add it.
@@ -138,12 +139,17 @@ public class ImportBackend {
     }
 
     private static void processItem(String[] curDataSet) throws SQLException {
+        String itemName = curDataSet[1];
+        String itemDescription = curDataSet[2];
+        //Part of a set of parts (e.g different types of Torx screwdrivers)? Add the set name to the item name.
+        if (previousItemName.length() > 0 && itemName.equals("")){
+            itemName = previousItemName;
+        }
+        previousItemName = itemName;
         if(doesItemExist(curDataSet[1], curDataSet[2], currentLocation)){
             return;
         }
         Integer itemID = generateID();
-        String itemName = curDataSet[1];
-        String itemDescription = curDataSet[2];
         Integer itemQuantity = getInteger(curDataSet[3]);
         Integer itemAvailable = getInteger(curDataSet[3]);
         String itemVendor = curDataSet[4];
@@ -187,9 +193,8 @@ public class ImportBackend {
             try {
                 processItem(intermediate);
             } catch (NumberFormatException err) {
-                System.out.println(
-                        "ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
-                System.out.println("Skipping this item.");
+                ;//System.out.println("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
+                //System.out.println("Skipping this item.");
             }
         }
     }
@@ -201,11 +206,13 @@ public class ImportBackend {
      *                  The file to import data from.
      */
     public static void importFromFile(File inputFile) throws SQLException, FileNotFoundException {
+        System.out.println("Importing data from " + inputFile.getName());
         try (Scanner inputFileScanner = new Scanner(inputFile)) {
             while (inputFileScanner.hasNextLine()) {
                 parseLine(inputFileScanner.nextLine());
             }
         }
+        System.out.println("Done.");
     }
 
 }

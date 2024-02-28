@@ -30,7 +30,6 @@ public class MainApplication extends Application {
             ApplicationSetup.doInitialSetup();
             FXMLLoader initialSceneLoader;
             ApplicationSetup.doDatabaseSetup();
-            ImportBackend.importFromFile(new File("testData.csv"));
             if (ApplicationVars.isFirstRun) {
                 initialSceneLoader = new FXMLLoader(MainApplication.class.getResource("import.fxml"));
             } else {
@@ -45,6 +44,12 @@ public class MainApplication extends Application {
         } catch (Exception err) {
             ErrorHandler.showFatalErrorDialog(err);
         }
+    }
+
+    @Override
+    public void stop(){
+        File lockFile = new File("PITS.lock");
+        lockFile.delete();
     }
 
     public static void main(String[] args) {

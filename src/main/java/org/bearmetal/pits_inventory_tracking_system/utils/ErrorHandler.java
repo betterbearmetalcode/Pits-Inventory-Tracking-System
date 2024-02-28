@@ -23,20 +23,29 @@ public class ErrorHandler {
         }
     };
 
+
     public static void showFatalErrorDialog(Thread t, Throwable err){
         showFatalErrorDialog(err, t.getName() + " " + err.toString());
     }
 
     public static void showFatalErrorDialog(Exception err){
-        showFatalErrorDialog(err, err.toString());
+        if (err.toString().contains("<>")){
+            showFatalErrorDialog(err.getMessage().replace("<>", ""));
+        } else {
+            showFatalErrorDialog(err, err.toString());
+        }
     }
 
     public static void showFatalErrorDialog(Throwable err, String message){
         err.printStackTrace();
+        message = "An error occurred:\n" + message + "\nPITS cannot continue and must be relaunched.";
+        showFatalErrorDialog(message);
+    }
+
+    public static void showFatalErrorDialog(String message){
         Stage dialogStage = new Stage();
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.setTitle("Fatal Error");
-        message = "An error occurred:\n" + message + "\nPITS cannot continue and must be relaunched.";
         Text errorMessage = new Text(message);
         Button exitButton = new Button("Exit");
         errorMessage.setFill(Color.YELLOW);

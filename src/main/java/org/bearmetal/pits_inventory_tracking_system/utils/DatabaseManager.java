@@ -96,6 +96,7 @@ public class DatabaseManager {
         } catch (SQLException err){
             System.err.println("SQLException while executing statement '" + statement + "'.");
             System.err.println("Rolling back transaction.");
+            err.printStackTrace();
             connection.rollback();
         }
     }

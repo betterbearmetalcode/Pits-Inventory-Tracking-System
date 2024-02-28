@@ -2,6 +2,8 @@ package org.bearmetal.pits_inventory_tracking_system.utils;
 
 import java.io.IOException;
 
+import org.bearmetal.pits_inventory_tracking_system.ApplicationVars;
+
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +18,7 @@ public class PageLoader {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/bearmetal/pits_inventory_tracking_system/" + fxmlFile));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, ApplicationVars.windowWidth, ApplicationVars.windowHeight);
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 

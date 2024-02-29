@@ -31,7 +31,14 @@ public class ImportBackend implements Runnable {
     private static Integer currentLocation;
     private static String previousItemName = "";
     public static ReentrantLock importThreadLock = new ReentrantLock();
+    //Evil hack for non-static / static variants of reportProgress
+    private static ImportController importControllerInst;
     private File in;
+
+    private static void reportProgress(String progressString){
+        System.out.println("Updating import UI with import progress string '" + progressString + "'");
+        ImportController.reportProgressCallback(progressString);
+    }
 
     private static Integer generateID() {
         Integer id = rand.nextInt(100000000, 999999999);
@@ -51,7 +58,7 @@ public class ImportBackend implements Runnable {
                 return false; // No results
             }
             currentLocation = (Integer) ret.get(0).get("location_id");
-            System.out.println("This location already exists, skipping");
+            reportProgress("This location already exists, skipping");
             return true;
         } catch (SQLException err){ //No results returned
             return false;
@@ -65,7 +72,7 @@ public class ImportBackend implements Runnable {
             if (ret.size() == 0){
                 return false; // No results
             }
-            System.out.println("Item '" + itemName + "' with description '" + itemDescription + "' already exists, skipping");
+            reportProgress("Item '" + itemName + "' with description '" + itemDescription + "' already exists, skipping");
             return true;
         } catch (SQLException err){
             return false;
@@ -78,7 +85,7 @@ public class ImportBackend implements Runnable {
         }
         Object[] params = {itemID, itemName, itemDescription, itemQuantity, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID};
         DatabaseManager.execNoReturn("INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", params);
-        //System.out.println("Added item " + itemID + ", name '" + itemName + "', description '" + itemDescription + "'");
+        reportProgress("Added item " + itemID + ", name '" + itemName + "', description '" + itemDescription + "'");
     }
 
     private static void addLocation(Integer locationID, String locationName, Integer isCategory, Integer parentCategory)
@@ -90,7 +97,7 @@ public class ImportBackend implements Runnable {
         Object[] params = { locationID, locationName, isCategory, parentCategory };
         locationIDWorkingSet.add(locationID);
         DatabaseManager.execNoReturn("INSERT INTO locations VALUES(?, ?, ?, ?)", params);
-        //System.out.println("Added location " + locationID);
+        reportProgress("Added location " + locationID);
         previousItemName = "";
         currentLocation = locationID;
     }
@@ -198,7 +205,7 @@ public class ImportBackend implements Runnable {
             try {
                 processItem(intermediate);
             } catch (NumberFormatException err) {
-                ;//System.out.println("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
+                reportProgress("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.")
                 //System.out.println("Skipping this item.");
             }
         }
@@ -220,8 +227,9 @@ public class ImportBackend implements Runnable {
         System.out.println("Done.");
     }
 
-    public ImportBackend(File inputFile){
+    public ImportBackend(File inputFile, ImportController controller){
         this.in = inputFile;
+        this.importControllerInst = controller;
     }
 
     public void run(){
@@ -230,7 +238,6 @@ public class ImportBackend implements Runnable {
             importFromFile(in);
         } catch (Exception err){
             err.printStackTrace();
-            //Report error to UI
         } finally {
             importThreadLock.unlock();
         }

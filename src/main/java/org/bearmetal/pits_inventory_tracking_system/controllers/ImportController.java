@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -18,8 +20,15 @@ public class ImportController {
     PageLoader pageLoader = new PageLoader();
     static Thread importThread;
 
-    public void reportProgressCallback(String status, Integer progress){
+    @FXML
+    private static ProgressIndicator importProgressIndicator;
 
+    @FXML
+    private static Label importProgressText;
+
+    //ew. we need this to be static to let us use it from our static methods in ImportBackend
+    public static void reportProgressCallback(String status){
+        importProgressText.setText(status);
     }
 
     @FXML

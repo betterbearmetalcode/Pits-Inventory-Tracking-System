@@ -17,7 +17,6 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        Thread.setDefaultUncaughtExceptionHandler(ErrorHandler::showFatalErrorDialog);
         try {
             HashMap<String, String> tables = new HashMap<String, String>();
             tables.put("locations",
@@ -53,6 +52,7 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
+        Thread.setDefaultUncaughtExceptionHandler(ErrorHandler::showFatalErrorDialog);
         launch();
     }
 }

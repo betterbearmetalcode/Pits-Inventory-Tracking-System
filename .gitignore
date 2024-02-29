@@ -2,3 +2,5 @@ target/classes/*.class
 target/*
 *.db
 *.class
+*.ini
+*.lock

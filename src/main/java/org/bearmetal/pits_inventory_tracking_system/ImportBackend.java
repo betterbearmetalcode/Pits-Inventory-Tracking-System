@@ -7,15 +7,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.locks.ReentrantLock;
 
+import org.bearmetal.pits_inventory_tracking_system.controllers.ImportController;
 import org.bearmetal.pits_inventory_tracking_system.utils.DatabaseManager;
 
 /**
  * Handles initial data import.
- * 
+ * <p>
+ * Implements Runnable to allow for imports without blocking the Application thread.
  * @author Colin Rice
  */
-public class ImportBackend {
+public class ImportBackend implements Runnable {
 
     private static Random rand = new Random();
 
@@ -27,6 +30,8 @@ public class ImportBackend {
     private static ArrayList<Integer> itemIDWorkingSet = new ArrayList<Integer>();
     private static Integer currentLocation;
     private static String previousItemName = "";
+    public static ReentrantLock importThreadLock = new ReentrantLock();
+    private File in;
 
     private static Integer generateID() {
         Integer id = rand.nextInt(100000000, 999999999);
@@ -213,6 +218,22 @@ public class ImportBackend {
             }
         }
         System.out.println("Done.");
+    }
+
+    public ImportBackend(File inputFile){
+        this.in = inputFile;
+    }
+
+    public void run(){
+        importThreadLock.lock();
+        try{
+            importFromFile(in);
+        } catch (Exception err){
+            err.printStackTrace();
+            //Report error to UI
+        } finally {
+            importThreadLock.unlock();
+        }
     }
 
 }

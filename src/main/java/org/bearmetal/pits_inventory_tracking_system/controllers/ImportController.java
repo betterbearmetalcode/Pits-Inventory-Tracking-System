@@ -40,6 +40,11 @@ public class ImportController {
     @FXML
     private Pane importResultContainer;
 
+    @FXML
+    private Label importResultHeader;
+
+    private String importFileName;
+
     public void reportProgressCallback(String status){
         Platform.runLater(new Runnable() {
             public void run(){
@@ -54,9 +59,10 @@ public class ImportController {
                 importProgressIndicator.setVisible(false);
                 importProgressText.setText("Import finished. Click the button above to import data from another file.");
                 importResultContainer.setVisible(true);
-                itemsSuccessful.setText("" + importedItems + " items added");
+                importResultHeader.setText("From " + importFileName + ":");
+                itemsSuccessful.setText("Added " + importedItems + " items");
                 itemsInvalid.setText("" + invalidItems + " invalid items");
-                itemsSkipped.setText("" + skippedItems + " items already existed");
+                itemsSkipped.setText("Skipped " + skippedItems + " existing items");
             }
         });
     }
@@ -76,6 +82,7 @@ public class ImportController {
         if (selectedFile == null){
             return;
         }
+        importFileName = selectedFile.getName();
         //Offload ImportBackend work to another thread.
         Thread importThread = new Thread(new ImportBackend(selectedFile, this));
         importProgressIndicator.setVisible(true);

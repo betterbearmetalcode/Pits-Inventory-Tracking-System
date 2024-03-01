@@ -39,7 +39,7 @@ public class ImportBackend extends Thread {
     private Integer skippedItems = 0;
 
     private void reportProgress(String progressString){
-        if ((System.currentTimeMillis() - previousTime) > 100){
+        if ((System.currentTimeMillis() - previousTime) > 50){
             System.out.println("Updating import UI with import progress string '" + progressString + "'");
             importControllerInstance.reportProgressCallback(progressString);
             previousTime = System.currentTimeMillis();

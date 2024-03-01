@@ -85,7 +85,7 @@ public class ImportBackend extends Thread {
         }
     }
 
-    private void addItem(Integer itemID, String itemName, String itemDescription, Integer itemQuantity, Integer itemAvailable, String itemVendor, Integer partNumber, String itemInfo, Integer packed, Integer locationID) throws SQLException{
+    private void addItem(Integer itemID, String itemName, String itemDescription, Integer itemQuantity, Integer itemAvailable, String itemVendor, String partNumber, String itemInfo, Integer packed, Integer locationID) throws SQLException{
         if (doesItemExist(itemName, itemDescription, locationID)){
             return;
         }
@@ -173,7 +173,7 @@ public class ImportBackend extends Thread {
         Integer itemQuantity = getInteger(curDataSet[3]);
         Integer itemAvailable = getInteger(curDataSet[3]);
         String itemVendor = curDataSet[4];
-        Integer partNumber = getInteger(curDataSet[5]);
+        String partNumber = curDataSet[5];
         String itemInfo = curDataSet[6];
         Integer packed = getInteger(curDataSet[7]);
         Integer locationID = currentLocation;
@@ -194,6 +194,7 @@ public class ImportBackend extends Thread {
         }
         //Convert back to a String array.
         String[] intermediate = unstripped.toArray(new String[unstripped.size()]);
+        //for (String column : raw){System.out.print(column + "; ");}System.out.println();
         //If the row is missing location name, item name, and item description,
         //it doesn't have enough information for us and we should skip it.
         if (intermediate[0].equals("") && intermediate[1].equals("") && intermediate[2].equals("")) {
@@ -215,6 +216,7 @@ public class ImportBackend extends Thread {
             } catch (NumberFormatException err) {
                 this.invalidItems += 1;
                 reportProgress("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
+                err.printStackTrace();
                 //System.out.println("Skipping this item.");
             }
         }

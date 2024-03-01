@@ -18,7 +18,7 @@ import org.bearmetal.pits_inventory_tracking_system.utils.DatabaseManager;
  * Implements Runnable to allow for imports without blocking the Application thread.
  * @author Colin Rice
  */
-public class ImportBackend implements Runnable {
+public class ImportBackend extends Thread {
 
     private static Random rand = new Random();
 
@@ -31,16 +31,19 @@ public class ImportBackend implements Runnable {
     private static Integer currentLocation;
     private static String previousItemName = "";
     public static ReentrantLock importThreadLock = new ReentrantLock();
-    //Evil hack for non-static / static variants of reportProgress
-    private static ImportController importControllerInst;
+    private ImportController importControllerInstance;
     private File in;
+    private Long previousTime = System.currentTimeMillis();
 
-    private static void reportProgress(String progressString){
-        System.out.println("Updating import UI with import progress string '" + progressString + "'");
-        ImportController.reportProgressCallback(progressString);
+    private void reportProgress(String progressString){
+        if ((System.currentTimeMillis() - previousTime) > 100){
+            System.out.println("Updating import UI with import progress string '" + progressString + "'");
+            importControllerInstance.reportProgressCallback(progressString);
+            previousTime = System.currentTimeMillis();
+        }
     }
 
-    private static Integer generateID() {
+    private Integer generateID() {
         Integer id = rand.nextInt(100000000, 999999999);
         // If either of our two working sets contains our ID, skip it.
         // Hopefully this doesn't cause too much recursion?
@@ -50,7 +53,7 @@ public class ImportBackend implements Runnable {
         return id;
     }
 
-    private static Boolean doesLocationExist(String locationName){
+    private Boolean doesLocationExist(String locationName){
         try{
             Object[] checkParams = {locationName.strip()};
             ArrayList<HashMap<String, Object>> ret = DatabaseManager.exec("SELECT * FROM locations WHERE location_name=?", checkParams);
@@ -65,7 +68,7 @@ public class ImportBackend implements Runnable {
         }
     }
 
-    private static Boolean doesItemExist(String itemName, String itemDescription, Integer locationID){
+    private Boolean doesItemExist(String itemName, String itemDescription, Integer locationID){
         try{
             Object[] checkParams = {itemName, itemDescription, locationID};
             ArrayList<HashMap<String, Object>> ret = DatabaseManager.exec("SELECT * FROM items WHERE item_name=? AND item_description=? AND location_id=?", checkParams);
@@ -79,7 +82,7 @@ public class ImportBackend implements Runnable {
         }
     }
 
-    private static void addItem(Integer itemID, String itemName, String itemDescription, Integer itemQuantity, Integer itemAvailable, String itemVendor, Integer partNumber, String itemInfo, Integer packed, Integer locationID) throws SQLException{
+    private void addItem(Integer itemID, String itemName, String itemDescription, Integer itemQuantity, Integer itemAvailable, String itemVendor, Integer partNumber, String itemInfo, Integer packed, Integer locationID) throws SQLException{
         if (doesItemExist(itemName, itemDescription, locationID)){
             return;
         }
@@ -88,7 +91,7 @@ public class ImportBackend implements Runnable {
         reportProgress("Added item " + itemID + ", name '" + itemName + "', description '" + itemDescription + "'");
     }
 
-    private static void addLocation(Integer locationID, String locationName, Integer isCategory, Integer parentCategory)
+    private void addLocation(Integer locationID, String locationName, Integer isCategory, Integer parentCategory)
             throws SQLException {
         if (doesLocationExist(locationName)){
             //System.out.println("Location exists already.");
@@ -102,7 +105,7 @@ public class ImportBackend implements Runnable {
         currentLocation = locationID;
     }
 
-    private static Boolean locationContainsCategoryEdgeCase(String locationName){
+    private Boolean locationContainsCategoryEdgeCase(String locationName){
         for (String edgeCase : CATEGORY_EDGE_CASES){
             if (locationName.contains(edgeCase)){
                 System.out.println("Category edge case " + edgeCase + " detected");
@@ -112,7 +115,7 @@ public class ImportBackend implements Runnable {
         return false;
     }
 
-    private static void processLocation(String[] curDataSet) throws SQLException {
+    private void processLocation(String[] curDataSet) throws SQLException {
         String locationName = curDataSet[0].strip();
         // Is this location part of a category?
         if (locationName.contains("-") && ! locationContainsCategoryEdgeCase(locationName)) {
@@ -140,7 +143,7 @@ public class ImportBackend implements Runnable {
         }
     }
 
-    private static Integer getInteger(String in) {
+    private Integer getInteger(String in) {
         in = in.strip().replace("\"", "");
         if (in.equals("") || in.equals("FALSE")) {
             return 0;
@@ -150,7 +153,7 @@ public class ImportBackend implements Runnable {
         return Integer.parseInt(in);
     }
 
-    private static void processItem(String[] curDataSet) throws SQLException {
+    private void processItem(String[] curDataSet) throws SQLException {
         String itemName = curDataSet[1];
         String itemDescription = curDataSet[2];
         //Part of a set of parts (e.g different types of Torx screwdrivers)? Add the set name to the item name.
@@ -172,7 +175,7 @@ public class ImportBackend implements Runnable {
         addItem(itemID, itemName, itemDescription, itemQuantity, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID);
     }
 
-    private static void parseLine(String line) throws SQLException {
+    private void parseLine(String line) throws SQLException {
         // Break the current line into individual columns.
         // This regex matches all commas EXCEPT commas in string literals.
         // Any commas in item names/descriptions would fuck us over otherwise
@@ -205,7 +208,7 @@ public class ImportBackend implements Runnable {
             try {
                 processItem(intermediate);
             } catch (NumberFormatException err) {
-                reportProgress("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.")
+                reportProgress("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
                 //System.out.println("Skipping this item.");
             }
         }
@@ -217,19 +220,20 @@ public class ImportBackend implements Runnable {
      * @param inputFile
      *                  The file to import data from.
      */
-    public static void importFromFile(File inputFile) throws SQLException, FileNotFoundException {
-        System.out.println("Importing data from " + inputFile.getName());
+    public void importFromFile(File inputFile) throws SQLException, FileNotFoundException {
+        currentLocation = null;
+        reportProgress("Importing data from " + inputFile.getName());
         try (Scanner inputFileScanner = new Scanner(inputFile)) {
             while (inputFileScanner.hasNextLine()) {
                 parseLine(inputFileScanner.nextLine());
             }
         }
-        System.out.println("Done.");
+        reportProgress("Imported data from " + inputFile.getName());
     }
 
-    public ImportBackend(File inputFile, ImportController controller){
+    public ImportBackend(File inputFile, ImportController inst){
         this.in = inputFile;
-        this.importControllerInst = controller;
+        this.importControllerInstance = inst;
     }
 
     public void run(){
@@ -240,6 +244,7 @@ public class ImportBackend implements Runnable {
             err.printStackTrace();
         } finally {
             importThreadLock.unlock();
+            importControllerInstance.importDoneCallback();
         }
     }
 

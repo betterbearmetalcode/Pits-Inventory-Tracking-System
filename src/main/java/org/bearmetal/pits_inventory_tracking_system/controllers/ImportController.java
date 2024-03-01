@@ -6,7 +6,10 @@ import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -18,17 +21,29 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ImportController {
     PageLoader pageLoader = new PageLoader();
-    static Thread importThread;
+    private static Thread importThread;
 
     @FXML
-    private static ProgressIndicator importProgressIndicator;
+    private ProgressIndicator importProgressIndicator;
 
     @FXML
-    private static Label importProgressText;
+    private Label importProgressText;
 
-    //ew. we need this to be static to let us use it from our static methods in ImportBackend
-    public static void reportProgressCallback(String status){
-        importProgressText.setText(status);
+    public void reportProgressCallback(String status){
+        Platform.runLater(new Runnable() {
+            public void run(){
+                importProgressText.setText(status);
+            }
+        });
+    }
+
+    public void importDoneCallback(){
+        Platform.runLater(new Runnable() {
+            public void run(){
+                importProgressIndicator.setVisible(false);
+                importProgressText.setText("Import finished. Click the button above to import data from another file.");
+            }
+        });
     }
 
     @FXML
@@ -47,7 +62,10 @@ public class ImportController {
             return;
         }
         //Offload ImportBackend work to another thread.
-        Thread importThread = new Thread(new ImportBackend(selectedFile));
+        Thread importThread = new Thread(new ImportBackend(selectedFile, this));
+        importProgressIndicator.setVisible(true);
+        importProgressText.setVisible(true);
+        importProgressText.setText("");
         importThread.start();
     }
 }

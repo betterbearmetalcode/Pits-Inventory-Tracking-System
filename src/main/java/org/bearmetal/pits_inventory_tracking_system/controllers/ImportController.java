@@ -1,5 +1,6 @@
 package org.bearmetal.pits_inventory_tracking_system.controllers;
 
+import org.bearmetal.pits_inventory_tracking_system.ApplicationSetup;
 import org.bearmetal.pits_inventory_tracking_system.ImportBackend;
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 
@@ -11,9 +12,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -43,6 +47,9 @@ public class ImportController {
     @FXML
     private Label importResultHeader;
 
+    @FXML
+    private Button importCompleteButton;
+
     private String importFileName;
 
     public void reportProgressCallback(String status){
@@ -57,14 +64,26 @@ public class ImportController {
         Platform.runLater(new Runnable() {
             public void run(){
                 importProgressIndicator.setVisible(false);
-                importProgressText.setText("Import finished. Click the button above to import data from another file.");
+                importProgressText.setText("Import finished. When you're done importing data, click 'Done' above.");
                 importResultContainer.setVisible(true);
                 importResultHeader.setText("From " + importFileName + ":");
                 itemsSuccessful.setText("Added " + importedItems + " items");
                 itemsInvalid.setText("" + invalidItems + " invalid items");
                 itemsSkipped.setText("Skipped " + skippedItems + " existing items");
+                importCompleteButton.setScaleX(1.0);
+                importCompleteButton.setScaleY(1.0);
+                importCompleteButton.setText("Done");
+                importCompleteButton.setVisible(true);
+                importCompleteButton.setDisable(false);
+                GridPane.setHgrow(importCompleteButton, Priority.SOMETIMES);
             }
         });
+    }
+
+    @FXML
+    protected void onImportCompleteButtonClicked(ActionEvent event) throws SQLException{
+        ApplicationSetup.buildCaches();
+        pageLoader.openNewPage(event, "main.fxml");
     }
 
     @FXML

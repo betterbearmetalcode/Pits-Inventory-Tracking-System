@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" cache="true" cacheHint="SPEED" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.ImportController">
+<GridPane alignment="CENTER" cache="true" cacheHint="SPEED" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.ImportController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -34,6 +34,7 @@
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints />
          </rowConstraints>
          <children>
             <Text cache="true" cacheHint="SPEED" fill="#fff120" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to PITS!" textAlignment="CENTER" wrappingWidth="1000" GridPane.columnIndex="1">
@@ -41,7 +42,6 @@
                   <Font name="Century Gothic" size="90.0" />
                </font>
             </Text>
-      
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="149.0" scaleShape="false" stylesheets="@../../../stylesheets/menuButtons.css">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -71,19 +71,49 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text cache="true" cacheHint="SPEED" fill="#fff112" strokeType="OUTSIDE" strokeWidth="0.0" text="Import data to get started." textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <font>
-                  <Font size="60.0" />
-               </font>
-            </Text>
-            <Button fx:id="importButton" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" graphicTextGap="1.0" mnemonicParsing="false" onAction="#onImportButtonClicked" scaleShape="false" style="-fx-border-width: 3; -fx-border-color: #fff112; -fx-background-radius: 1; -fx-background-color: transparent;" text="Import" textAlignment="CENTER" textFill="#fff112" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <GridPane maxHeight="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="400.0" minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="importButton" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" graphicTextGap="1.0" mnemonicParsing="false" onAction="#onImportButtonClicked" scaleShape="false" style="-fx-border-width: 3; -fx-border-color: #fff112; -fx-background-radius: 1; -fx-background-color: transparent;" text="Import" textAlignment="CENTER" textFill="#fff112" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="importCompleteButton" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" disable="true" graphicTextGap="1.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#onImportCompleteButtonClicked" scaleShape="false" scaleX="0.0" scaleY="0.0" style="-fx-border-width: 3; -fx-border-color: #fff112; -fx-background-radius: 1; -fx-background-color: transparent;" textAlignment="CENTER" textFill="#fff112" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </GridPane>
+                  <Text cache="true" cacheHint="SPEED" fill="#fff112" strokeType="OUTSIDE" strokeWidth="0.0" text="Import data to get started." textAlignment="CENTER" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="60.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
             <Label fx:id="importProgressText" alignment="CENTER" cache="true" cacheHint="SPEED" graphicTextGap="2.0" maxWidth="1.7976931348623157E308" textAlignment="CENTER" textFill="#fff120" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="24.0" />

@@ -33,6 +33,7 @@ public class MainApplication extends Application {
                 initialSceneLoader = new FXMLLoader(MainApplication.class.getResource("import.fxml"));
             } else {
                 initialSceneLoader = new FXMLLoader(MainApplication.class.getResource("main.fxml"));
+                ApplicationSetup.buildCaches();
             }
             Scene scene = new Scene(initialSceneLoader.load(), ApplicationVars.windowWidth,
                     ApplicationVars.windowHeight);

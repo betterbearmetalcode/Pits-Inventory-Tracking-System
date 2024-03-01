@@ -6,14 +6,14 @@ import java.util.Map;
 import org.bearmetal.pits_inventory_tracking_system.models.ModelConstants.itemState;
 
 public class Event extends BaseModel{
-    private Integer itemid;
-    private Integer eventid;
-    private Integer eventtype;
-    private Boolean eventbulk;
-    private Integer eventtimestamp;
-    private String eventdesc;
-    private Integer itemdelta;
-    private Integer itemstate;
+    protected Integer itemid;
+    protected Integer eventid;
+    protected Integer eventtype;
+    protected Integer eventbulk;
+    protected Integer eventtimestamp;
+    protected String eventdesc;
+    protected Integer itemdelta;
+    protected Integer itemstate;
 
     public Integer getItemID() {
         return this.itemid;
@@ -40,15 +40,19 @@ public class Event extends BaseModel{
     }
 
     public Boolean isEventBulk() {
-        return this.eventbulk;
+        return getEventBulk();
     }
 
     public Boolean getEventBulk() {
-        return this.eventbulk;
+        return this.eventbulk == 1;
     }
 
     public void setEventBulk(Boolean eventBulk) {
-        this.eventbulk = eventBulk;
+        if (eventBulk){
+            this.eventbulk = 1;
+        } else {
+            this.eventbulk = 0;
+        }
     }
 
     public Integer getEventTimestamp() {
@@ -101,7 +105,7 @@ public class Event extends BaseModel{
      */
     public Event(HashMap<String, Object> eventData){
         for (Map.Entry<String, Object> pair : eventData.entrySet()){
-            this.setField(pair.getKey().replace("_", ""), pair.getValue());
+            ModelUtils.setField(this, pair.getKey().replace("_", ""), pair.getValue());
         }
     }
 

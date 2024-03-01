@@ -10,92 +10,104 @@ import java.util.Map;
  * @author Colin Rice
  */
 public class Item extends BaseModel {
-    private Integer id;
-    private String name;
-    private String description;
-    private Integer quantity;
-    private Integer available;
-    private String vendor;
-    private Integer partnumber;
-    private String extraInfo;
-    private Boolean packed;
-    private Integer locationid;
+    protected Integer itemid;
+    protected String itemname;
+    protected String itemdescription;
+    protected Integer itemquantity;
+    protected Integer itemavailable;
+    protected String itemvendor;
+    protected String itempartnumber;
+    protected String iteminfo;
+    protected Integer packed;
+    protected Integer locationid;
+    protected String photopath;
 
+    public String getPhotoPath(){
+        return this.photopath;
+    }
+
+    public void setPhotoPath(String photoPath){
+        this.photopath = photoPath;
+    }
 
     public Integer getID() {
-        return this.id;
+        return this.itemid;
     }
 
     public void setID(Integer ID) {
-        this.id = ID;
+        this.itemid = ID;
     }
 
     public String getName() {
-        return this.name;
+        return this.itemname;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.itemname = name;
     }
 
     public String getDescription() {
-        return this.description;
+        return this.itemdescription;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.itemdescription = description;
     }
 
     public Integer getQuantity() {
-        return this.quantity;
+        return this.itemquantity;
     }
 
     public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+        this.itemquantity = quantity;
     }
 
     public Integer getAvailable() {
-        return this.available;
+        return this.itemavailable;
     }
 
     public void setAvailable(Integer available) {
-        this.available = available;
+        this.itemavailable = available;
     }
 
     public String getVendor() {
-        return this.vendor;
+        return this.itemvendor;
     }
 
     public void setVendor(String vendor) {
-        this.vendor = vendor;
+        this.itemvendor = vendor;
     }
 
-    public Integer getPartNumber() {
-        return this.partnumber;
+    public String getPartNumber() {
+        return this.itempartnumber;
     }
 
-    public void setPartNumber(Integer partNumber) {
-        this.partnumber = partNumber;
+    public void setPartNumber(String partNumber) {
+        this.itempartnumber = partNumber;
     }
 
     public String getExtraInfo() {
-        return this.extraInfo;
+        return this.iteminfo;
     }
 
     public void setExtraInfo(String extraInfo) {
-        this.extraInfo = extraInfo;
+        this.iteminfo = extraInfo;
     }
 
     public Boolean isPacked() {
-        return this.packed;
+        return getPacked();
     }
 
     public Boolean getPacked() {
-        return this.packed;
+        return this.packed == 1;
     }
 
     public void setPacked(Boolean packed) {
-        this.packed = packed;
+        if (packed){
+            this.packed = 1;
+        } else {
+            this.packed = 0; 
+        }
     }
 
     public Integer getLocationID() {
@@ -113,7 +125,7 @@ public class Item extends BaseModel {
      */
     public Item(HashMap<String, Object> itemData){
         for (Map.Entry<String, Object> pair : itemData.entrySet()){
-            this.setField(pair.getKey().replace("_", ""), pair.getValue());
+            ModelUtils.setField(this, pair.getKey().replace("_", ""), pair.getValue());
         }
     }
 

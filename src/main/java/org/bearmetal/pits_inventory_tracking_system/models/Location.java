@@ -12,10 +12,10 @@ import java.util.Map;
  * @author Colin Rice
  */
 public class Location extends BaseModel{
-    private Integer locationid;
-    private String locationname;
-    private Boolean iscategory;
-    private Integer parentcategory;
+    protected Integer locationid;
+    protected String locationname;
+    protected Integer iscategory;
+    protected Integer parentcategory;
 
     public Integer getLocationID() {
         return this.locationid;
@@ -34,11 +34,15 @@ public class Location extends BaseModel{
     }
 
     public Boolean getIsCategory() {
-        return this.iscategory;
+        return this.iscategory == 1;
     }
 
     public void setIsCategory(Boolean iscategory) {
-        this.iscategory = iscategory;
+        if (iscategory){
+            this.iscategory = 1;
+        } else {
+            this.iscategory = 0;
+        }
     }
 
     public Integer getParentCategory() {
@@ -56,7 +60,7 @@ public class Location extends BaseModel{
      */
     public Location(HashMap<String, Object> locationData){
         for (Map.Entry<String, Object> pair : locationData.entrySet()){
-            this.setField(pair.getKey().replace("_", ""), pair.getValue());
+            ModelUtils.setField(this, pair.getKey().replace("_", ""), pair.getValue());
         }
     }
 }

@@ -6,8 +6,6 @@ public class ModelUtils {
     public static void setField(BaseModel cls, String fieldName, Object value) {
         Field field;
         try {
-            //ew
-            System.out.println(cls.getClass().getName());
             field = cls.getClass().getDeclaredField(fieldName);
             field.set(cls, value);
         } catch (Exception e) {

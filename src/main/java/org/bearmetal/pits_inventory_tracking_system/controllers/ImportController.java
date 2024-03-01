@@ -6,8 +6,6 @@ import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.SynchronousQueue;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -15,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -29,6 +28,18 @@ public class ImportController {
     @FXML
     private Label importProgressText;
 
+    @FXML
+    private Label itemsSuccessful;
+
+    @FXML
+    private Label itemsInvalid;
+
+    @FXML
+    private Label itemsSkipped;
+
+    @FXML
+    private Pane importResultContainer;
+
     public void reportProgressCallback(String status){
         Platform.runLater(new Runnable() {
             public void run(){
@@ -37,11 +48,15 @@ public class ImportController {
         });
     }
 
-    public void importDoneCallback(){
+    public void importDoneCallback(Integer importedItems, Integer invalidItems, Integer skippedItems){
         Platform.runLater(new Runnable() {
             public void run(){
                 importProgressIndicator.setVisible(false);
                 importProgressText.setText("Import finished. Click the button above to import data from another file.");
+                importResultContainer.setVisible(true);
+                itemsSuccessful.setText("" + importedItems + " items added");
+                itemsInvalid.setText("" + invalidItems + " invalid items");
+                itemsSkipped.setText("" + skippedItems + " items already existed");
             }
         });
     }

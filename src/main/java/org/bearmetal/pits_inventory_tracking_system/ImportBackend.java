@@ -15,7 +15,7 @@ import org.bearmetal.pits_inventory_tracking_system.utils.DatabaseManager;
 /**
  * Handles initial data import.
  * <p>
- * Implements Runnable to allow for imports without blocking the Application thread.
+ * Extends Thread to allow for imports without blocking the Application thread.
  * @author Colin Rice
  */
 public class ImportBackend extends Thread {
@@ -34,6 +34,9 @@ public class ImportBackend extends Thread {
     private ImportController importControllerInstance;
     private File in;
     private Long previousTime = System.currentTimeMillis();
+    private Integer importedItems = 0;
+    private Integer invalidItems = 0;
+    private Integer skippedItems = 0;
 
     private void reportProgress(String progressString){
         if ((System.currentTimeMillis() - previousTime) > 100){
@@ -86,6 +89,7 @@ public class ImportBackend extends Thread {
         if (doesItemExist(itemName, itemDescription, locationID)){
             return;
         }
+        this.importedItems += 1;
         Object[] params = {itemID, itemName, itemDescription, itemQuantity, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID};
         DatabaseManager.execNoReturn("INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", params);
         reportProgress("Added item " + itemID + ", name '" + itemName + "', description '" + itemDescription + "'");
@@ -162,6 +166,7 @@ public class ImportBackend extends Thread {
         }
         previousItemName = itemName;
         if(doesItemExist(curDataSet[1], curDataSet[2], currentLocation)){
+            this.skippedItems += 1;
             return;
         }
         Integer itemID = generateID();
@@ -208,6 +213,7 @@ public class ImportBackend extends Thread {
             try {
                 processItem(intermediate);
             } catch (NumberFormatException err) {
+                this.invalidItems += 1;
                 reportProgress("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
                 //System.out.println("Skipping this item.");
             }
@@ -244,7 +250,7 @@ public class ImportBackend extends Thread {
             err.printStackTrace();
         } finally {
             importThreadLock.unlock();
-            importControllerInstance.importDoneCallback();
+            importControllerInstance.importDoneCallback(this.importedItems, this.invalidItems, this.skippedItems);
         }
     }
 

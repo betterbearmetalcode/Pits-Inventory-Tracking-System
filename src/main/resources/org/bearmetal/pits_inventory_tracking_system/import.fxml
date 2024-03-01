@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,11 +9,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" cache="true" cacheHint="SPEED" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.ImportController">
+<GridPane alignment="CENTER" cache="true" cacheHint="SPEED" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.bearmetal.pits_inventory_tracking_system.controllers.ImportController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -58,7 +60,7 @@
             </Button>
          </children>
       </GridPane>
-      <GridPane alignment="CENTER" cache="true" cacheHint="SPEED" gridLinesVisible="true" GridPane.rowIndex="1">
+      <GridPane alignment="CENTER" cache="true" cacheHint="SPEED" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -84,11 +86,21 @@
                </cursor>
             </Button>
             <ProgressIndicator fx:id="importProgressIndicator" cache="true" cacheHint="SPEED" scaleShape="false" style="-fx-accent: #fff120;" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label fx:id="importProgressText" maxWidth="1.7976931348623157E308" textFill="#fff120" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
+            <Label fx:id="importProgressText" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Pane maxHeight="-Infinity" prefHeight="250.0" prefWidth="600.0" style="-fx-background-color: rgba(0, 0, 0, 0.6);" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <Label fx:id="itemsSuccessful" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" textAlignment="CENTER" textFill="#82ba75" />
+                  <Label fx:id="itemsInvalid" maxWidth="1.7976931348623157E308" textFill="#fff120">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="Label" />
+               </children>
+            </Pane>
          </children>
       </GridPane>
    </children>

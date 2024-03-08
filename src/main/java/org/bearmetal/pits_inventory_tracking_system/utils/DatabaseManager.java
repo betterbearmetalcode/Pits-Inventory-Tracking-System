@@ -172,6 +172,11 @@ public class DatabaseManager {
      */
     public static void connect(String db) throws SQLException{
         databaseName = db;
+        try{
+            Class.forName("org.sqlite.JDBC");
+        } catch (Exception err){
+            
+        }
         System.out.println("Opening connection to database " + databaseName);
         connection = DriverManager.getConnection("jdbc:sqlite:" + databaseName + ".db");
         connection.setAutoCommit(false);

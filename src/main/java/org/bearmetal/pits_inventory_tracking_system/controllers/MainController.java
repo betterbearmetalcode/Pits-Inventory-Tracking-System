@@ -2,9 +2,6 @@ package org.bearmetal.pits_inventory_tracking_system.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import org.controlsfx.control.action.Action;
 
 import org.bearmetal.pits_inventory_tracking_system.utils.PageLoader;
 

@@ -66,6 +66,7 @@
                       <artifactSet>
                         <includes>
                           <include>org.xerial:sqlite-jdbc</include>
+                          <include>org.slf4j:slf4j-api</include>
                           <include>org.openjfx:javafx-controls</include>
                           <include>org.openjfx:javafx-fxml</include>
                           <include>org.openjfx:javafx-graphics</include>
@@ -109,8 +110,7 @@
                                 org.bearmetal.pits_inventory_tracking_system.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <jlinkZipName>Pits_Inventory_Tracking_System</jlinkZipName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>

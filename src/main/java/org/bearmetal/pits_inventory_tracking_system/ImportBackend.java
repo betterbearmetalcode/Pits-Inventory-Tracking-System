@@ -22,13 +22,14 @@ public class ImportBackend extends Thread {
 
     private static Random rand = new Random();
 
-    private static final String[] CATEGORY_EDGE_CASES = {"3D-"};
+    private static final String[] CATEGORY_EDGE_CASES = {};
 
     // Map of category name to category ID
     private static HashMap<String, Integer> categoryMapping = new HashMap<String, Integer>();
     private static ArrayList<Integer> locationIDWorkingSet = new ArrayList<Integer>();
     private static ArrayList<Integer> itemIDWorkingSet = new ArrayList<Integer>();
     private static Integer currentLocation;
+    private static Integer currentCategory;
     private static String previousItemName = "";
     public static ReentrantLock importThreadLock = new ReentrantLock();
     private ImportController importControllerInstance;
@@ -58,7 +59,7 @@ public class ImportBackend extends Thread {
 
     private Boolean doesLocationExist(String locationName){
         try{
-            Object[] checkParams = {locationName.strip()};
+            Object[] checkParams = {locationName};
             ArrayList<HashMap<String, Object>> ret = DatabaseManager.exec("SELECT * FROM locations WHERE location_name=?", checkParams);
             if (ret.size() == 0){
                 return false; // No results
@@ -85,12 +86,12 @@ public class ImportBackend extends Thread {
         }
     }
 
-    private void addItem(Integer itemID, String itemName, String itemDescription, Integer itemQuantity, Integer itemAvailable, String itemVendor, String partNumber, String itemInfo, Integer packed, Integer locationID) throws SQLException{
+    private void addItem(Integer itemID, String itemName, String itemDescription, Integer itemQuantity, String itemSuffix, Integer itemAvailable, String itemVendor, String partNumber, String itemInfo, Integer packed, Integer locationID) throws SQLException{
         if (doesItemExist(itemName, itemDescription, locationID)){
             return;
         }
         this.importedItems += 1;
-        Object[] params = {itemID, itemName, itemDescription, itemQuantity, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID};
+        Object[] params = {itemID, itemName, itemDescription, itemQuantity, itemSuffix, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID};
         DatabaseManager.execNoReturn("INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", params);
         reportProgress("Added item " + itemID + ", name '" + itemName + "', description '" + itemDescription + "'");
     }
@@ -120,7 +121,8 @@ public class ImportBackend extends Thread {
     }
 
     private void processLocation(String[] curDataSet) throws SQLException {
-        String locationName = curDataSet[0].strip();
+        previousItemName = "";
+        String locationName = curDataSet[0];
         // Is this location part of a category?
         if (locationName.contains("-") && ! locationContainsCategoryEdgeCase(locationName)) {
             String[] categoryPair = locationName.split("-", 2);
@@ -134,9 +136,11 @@ public class ImportBackend extends Thread {
                 // No? Add it.
                 parentID = generateID();
                 addLocation(parentID, parentName, 1, 0);
+                currentCategory = parentID;
             } else {
-                parentID = categoryMapping.get(parentName);
+                parentID = currentCategory;
             }
+            System.out.println("For location " + locationName + " the parent Category is " + parentName + " (" + parentID + ")");
             // Now add this location.
             Integer childID = generateID();
             addLocation(childID, childName, 0, parentID);
@@ -165,6 +169,10 @@ public class ImportBackend extends Thread {
             itemName = previousItemName;
         }
         previousItemName = itemName;
+        //No item name but an item description? Set the item name to the description.
+        if (itemName.equals("") && ! itemDescription.equals("")){
+            itemName = itemDescription;
+        }
         if(doesItemExist(curDataSet[1], curDataSet[2], currentLocation)){
             this.skippedItems += 1;
             return;
@@ -172,12 +180,14 @@ public class ImportBackend extends Thread {
         Integer itemID = generateID();
         Integer itemQuantity = getInteger(curDataSet[3]);
         Integer itemAvailable = getInteger(curDataSet[3]);
-        String itemVendor = curDataSet[4];
-        String partNumber = curDataSet[5];
-        String itemInfo = curDataSet[6];
-        Integer packed = getInteger(curDataSet[7]);
+        String itemSuffix = curDataSet[4];
+        String itemVendor = curDataSet[5];
+        String partNumber = curDataSet[6];
+        String itemInfo = curDataSet[7];
+        Integer packed = getInteger(curDataSet[8]);
         Integer locationID = currentLocation;
-        addItem(itemID, itemName, itemDescription, itemQuantity, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID);
+        System.out.println("Current location ID is " + currentLocation);
+        addItem(itemID, itemName, itemDescription, itemQuantity, itemSuffix, itemAvailable, itemVendor, partNumber, itemInfo, packed, locationID);
     }
 
     private void parseLine(String line) throws SQLException {
@@ -218,6 +228,10 @@ public class ImportBackend extends Thread {
                 reportProgress("ERROR: Invalid item quantity / part number / packed state. These values MUST be integers.");
                 err.printStackTrace();
                 //System.out.println("Skipping this item.");
+            } catch (Exception err){
+                this.invalidItems += 1;
+                reportProgress("ERROR: Unknown error while processing this item.");
+                err.printStackTrace();
             }
         }
     }
@@ -230,6 +244,7 @@ public class ImportBackend extends Thread {
      */
     public void importFromFile(File inputFile) throws SQLException, FileNotFoundException {
         currentLocation = null;
+        previousItemName = "";
         reportProgress("Importing data from " + inputFile.getName());
         try (Scanner inputFileScanner = new Scanner(inputFile)) {
             while (inputFileScanner.hasNextLine()) {

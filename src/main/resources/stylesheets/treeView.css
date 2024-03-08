@@ -1,0 +1,24 @@
+.itemTreeView, .tree-cell, .itemTreeView .tree-cell{
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #fff120;
+    -fx-accent: #fff120;
+    -fx-border-color: #0a0a0a;
+}
+
+.itemTreeView .arrow{
+    -fx-background-color: #fff120;
+}
+
+.itemTreeView .tree-cell:hover{
+    -fx-background-color:#353333;
+}
+
+.itemTreeView .tree-cell:selected .arrow{
+    -fx-background-color: #0a0a0a !important;
+}
+
+.itemTreeView .tree-cell:selected{
+    -fx-background-color: #fff120 !important;
+    -fx-border-color: #0a0a0a !important;
+    -fx-text-fill: #0a0a0a !important;
+}

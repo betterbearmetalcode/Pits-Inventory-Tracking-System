@@ -22,7 +22,7 @@ public class MainApplication extends Application {
             tables.put("locations",
                     "location_id INTEGER PRIMARY KEY, location_name TEXT, is_category INTEGER, parent_category INTEGER");
             tables.put("items",
-                    "item_id INTEGER PRIMARY KEY, item_name TEXT, item_description TEXT, item_quantity INTEGER, item_available INTEGER, item_vendor TEXT, item_part_number TEXT, item_info TEXT, packed INTEGER, location_id INTEGER, photo_path TEXT");
+                    "item_id INTEGER PRIMARY KEY, item_name TEXT, item_description TEXT, item_quantity INTEGER, item_suffix TEXT, item_available INTEGER, item_vendor TEXT, item_part_number TEXT, item_info TEXT, packed INTEGER, location_id INTEGER");
             tables.put("events",
                     "item_id INTEGER, event_id INTEGER PRIMARY KEY, event_type INTEGER, event_bulk INTEGER, event_timestamp INTEGER, event_desc TEXT, item_delta INTEGER, item_state INTEGER");
             DatabaseManager.setTables(tables);

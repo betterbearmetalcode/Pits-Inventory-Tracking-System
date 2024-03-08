@@ -14,6 +14,7 @@ public class Item extends BaseModel {
     protected String itemname;
     protected String itemdescription;
     protected Integer itemquantity;
+    protected String itemsuffix;
     protected Integer itemavailable;
     protected String itemvendor;
     protected String itempartnumber;
@@ -60,6 +61,14 @@ public class Item extends BaseModel {
 
     public void setQuantity(Integer quantity) {
         this.itemquantity = quantity;
+    }
+
+    public String getSuffix(){
+        return this.itemsuffix;
+    }
+
+    public void setSuffix(String itemSuffix){
+        this.itemsuffix = itemSuffix;
     }
 
     public Integer getAvailable() {

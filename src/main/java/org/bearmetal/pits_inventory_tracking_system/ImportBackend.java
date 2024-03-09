@@ -193,7 +193,7 @@ public class ImportBackend extends Thread {
     private void parseLine(String line) throws SQLException {
         // Break the current line into individual columns.
         // This regex matches all commas EXCEPT commas in string literals.
-        // Any commas in item names/descriptions would fuck us over otherwise
+        // Any commas in item names/descriptions WILL BREAK STUFF OTHERWISE
         // Limit is set to -1 to allow empty strings so we can index columns properly
         // even if one or more is empty.
         String[] raw = line.split(",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)", -1);

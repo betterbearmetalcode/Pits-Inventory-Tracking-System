@@ -73,7 +73,7 @@ public class ItemsController {
                     TreeItem<Object> categoryChild = new TreeItem<Object>(childLocation.getLocationName());
                     for (Item childItem : childLocation.getChildItems()){
                         System.out.println("Creating node for child item " + childItem.getID());
-                        String itemName = "(" + childItem.getID() + ") " + childItem.getName() + " - " + childItem.getDescription();
+                        String itemName = "(" + childItem.getID() + ") " + childItem.getName() + " - " + childItem.getDescription() + " (" + childItem.getQuantity() + " " + childItem.getSuffix() + " available)";
                         //Add this item to the child location node.
                         categoryChild.getChildren().add(new TreeItem<Object>(itemName));
                     }
@@ -84,7 +84,7 @@ public class ItemsController {
                 //No child locations? This must be a standalone location.
                 //Just add the Category's children to the category node.
                 for (Item childItem : category.getChildItems()){
-                    String itemName = "(" + childItem.getID() + ") " + childItem.getName() + " - " + childItem.getDescription();
+                    String itemName = "(" + childItem.getID() + ") " + childItem.getName() + " (" + childItem.getQuantity() + " " + childItem.getSuffix() + " available)";
                     //Add items contained in this location to the child location node.
                     categoryRoot.getChildren().add(new TreeItem<Object>(itemName));
                 }

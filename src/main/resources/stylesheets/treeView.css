@@ -5,6 +5,28 @@
     -fx-border-color: #0a0a0a;
 }
 
+.itemTreeView .scroll-bar{
+    -fx-border-color: #353333;
+    -fx-background-color: #0a0a0a;
+}
+
+.itemTreeView .thumb{
+    -fx-accent: #fff120;
+    -fx-background-color: #fff120;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.itemTreeView .increment-button, .itemTreeView .decrement-button{
+    -fx-fill: #fff120 !important;
+    -fx-background-color: #0a0a0a !important;
+}
+
+.itemTreeView .increment-button:hover, .itemTreeView .decrement-button:hover{
+    -fx-fill: #0a0a0a !important;
+    -fx-background-color: #fff120 !important;
+}
+
 .itemTreeView .arrow{
     -fx-background-color: #fff120;
 }

@@ -99,9 +99,12 @@ public class ItemsController {
     public void initialize(){
         TreeItem<Object> treeRoot = new TreeItem<Object>("Items");
         treeRoot.setExpanded(true);
-        ArrayList<TreeItem<Object>> items = getTreeViewItems();
+        //Cache not populated? Get tree items.
+        if (ApplicationCache.itemTreeViewItems == null){
+            ApplicationCache.itemTreeViewItems = getTreeViewItems();
+        }
         System.out.println("Applying tree view items to root.");
-        for (TreeItem<Object> item : items){
+        for (TreeItem<Object> item : ApplicationCache.itemTreeViewItems){
             treeRoot.getChildren().add(item);
         }
         this.itemTreeView.setRoot(treeRoot);

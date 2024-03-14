@@ -31,7 +31,7 @@
             <RowConstraints maxHeight="808.0" minHeight="10.0" prefHeight="788.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <GridPane fx:id="contentGridPane" alignment="CENTER" GridPane.rowIndex="1">
+            <GridPane fx:id="contentGridPane" alignment="CENTER" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -39,7 +39,8 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                  <RowConstraints />
+                  <RowConstraints vgrow="ALWAYS" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
               </rowConstraints>
             </GridPane>
             <GridPane fx:id="navigationGridPane" style="-fx-background-color: #0a0a0a !important;">

@@ -43,6 +43,11 @@ public class AddItemsController {
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
     @FXML
-    protected void onBackButtonClick(ActionEvent event) {pageLoader.openNewPage(event, "itemsManager.fxml");}
+    protected void onBackClick(ActionEvent event) {pageLoader.openNewPage(event, "itemsManager.fxml");}
+    @FXML
+    protected void onClearClick(ActionEvent event) {pageLoader.openNewPage(event, "addItems.fxml");}
+    @FXML
+    protected  void onAddClick(ActionEvent event) {}
+
 
 }

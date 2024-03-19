@@ -29,4 +29,6 @@ public class ItemInfoController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
+    @FXML
+    protected void onBackClick(ActionEvent event) {pageLoader.openNewPage(event, "testSearchPageButtons.fxml");}
 }

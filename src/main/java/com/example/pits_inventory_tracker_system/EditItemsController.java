@@ -4,9 +4,9 @@ import com.example.pits_inventory_tracker_system.utils.PageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class ItemsController {
-    PageLoader pageLoader = new PageLoader();
+public class EditItemsController {
 
+    PageLoader pageLoader = new PageLoader();
     @FXML
     protected void onLocationManagerClick(ActionEvent event) {
         pageLoader.openNewPage(event, "locationManager.fxml");
@@ -30,7 +30,9 @@ public class ItemsController {
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
     @FXML
-    protected void onAddItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "addItems.fxml");}
+    protected void onBackClick(ActionEvent event) {pageLoader.openNewPage(event, "itemsManager.fxml");}
     @FXML
-    protected void onRemoveItemsClick(ActionEvent event) {pageLoader.openNewPage(event, "removeItems.fxml");}
+    protected void onClearClick(ActionEvent event) {pageLoader.openNewPage(event, "editItems.fxml");}
+    @FXML
+    protected  void onEditClick(ActionEvent event) {pageLoader.openNewPage(event, "editItems.fxml");}
 }

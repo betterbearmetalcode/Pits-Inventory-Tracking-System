@@ -19,7 +19,7 @@
       </ImageView>
       <Rectangle fx:id="topBanner" arcHeight="5.0" arcWidth="5.0" fill="#0c1012" height="128.0" layoutX="-16.0" layoutY="-3.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1531.0" />
 
-      <Button layoutX="36.0" layoutY="19.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
+      <Button layoutX="37.0" layoutY="16.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
          <graphic>
             <ImageView fitHeight="91.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,8 +29,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-         </graphic></Button>
-      <Button fx:id="button1" layoutX="225.0" layoutY="42.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" prefHeight="47.0" prefWidth="263.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="225.0" layoutY="40.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -38,7 +41,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="501.0" layoutY="39.0" mnemonicParsing="false" onAction="#onLocationManagerClick" prefHeight="47.0" prefWidth="251.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
+      <Button layoutX="500.0" layoutY="40.0" mnemonicParsing="false" onAction="#onLocationManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -46,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="794.0" layoutY="42.0" mnemonicParsing="false" onAction="#onItemsManagerClick" prefHeight="47.0" prefWidth="199.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
+      <Button layoutX="775.0" layoutY="40.0" mnemonicParsing="false" onAction="#onItemsManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -54,7 +57,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1019.0" layoutY="42.0" mnemonicParsing="false" onAction="#onSettingsClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
+      <Button layoutX="1000.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSettingsClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="1150.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSearchClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -80,14 +91,6 @@
          <effect>
             <DropShadow height="255.0" radius="127.0" spread="0.94" width="255.0" />
          </effect>
-      </Button>
-      <Button layoutX="1166.0" layoutY="43.0" mnemonicParsing="false" onAction="#onSearchClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
-         <font>
-            <Font name="Century Gothic" size="24.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </Button>
    </children>
 </AnchorPane>

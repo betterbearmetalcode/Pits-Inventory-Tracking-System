@@ -30,4 +30,8 @@ public class PageLoader {
             e.printStackTrace();
         }
     }
+
+    public void openItemInfoPage(int itemID, String itemName, String itemVendor, int itemQTY, String itemPartNum, String wtb) {
+
+    }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.DropShadow?>
@@ -9,17 +10,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pits_inventory_tracker_system.ItemsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pits_inventory_tracker_system.ItemsManagerController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="950.0" stroke="BLACK" strokeType="INSIDE" width="1514.0" />
-      <ImageView fitHeight="862.0" fitWidth="1518.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/IMG_4479.png" />
-         </image>
-      </ImageView>
+        <ImageView fitHeight="853.0" fitWidth="1520.0" layoutX="-1.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/IMG_4479.png" />
+            </image>
+        </ImageView>
         <Rectangle fx:id="topBanner" arcHeight="5.0" arcWidth="5.0" fill="#0c1012" height="128.0" layoutX="-16.0" layoutY="-3.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1531.0" />
 
-        <Button layoutX="36.0" layoutY="19.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
+        <Button layoutX="37.0" layoutY="16.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
             <graphic>
                 <ImageView fitHeight="91.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -29,8 +29,11 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
-            </graphic></Button>
-        <Button fx:id="button1" layoutX="225.0" layoutY="42.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" prefHeight="47.0" prefWidth="263.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button layoutX="225.0" layoutY="40.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -38,7 +41,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="501.0" layoutY="39.0" mnemonicParsing="false" onAction="#onLocationManagerClick" prefHeight="47.0" prefWidth="251.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
+        <Button layoutX="500.0" layoutY="40.0" mnemonicParsing="false" onAction="#onLocationManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -46,7 +49,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="794.0" layoutY="42.0" mnemonicParsing="false" onAction="#onItemsManagerClick" prefHeight="47.0" prefWidth="199.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
+        <Button layoutX="775.0" layoutY="40.0" mnemonicParsing="false" onAction="#onItemsManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -54,7 +57,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="1019.0" layoutY="42.0" mnemonicParsing="false" onAction="#onSettingsClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
+        <Button layoutX="1000.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSettingsClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -62,7 +65,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="1166.0" layoutY="43.0" mnemonicParsing="false" onAction="#onSearchClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
+        <Button layoutX="1150.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSearchClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -70,24 +73,47 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Button layoutX="335.0" layoutY="429.0" mnemonicParsing="false" onAction="#onAddItemsClick" prefHeight="92.0" prefWidth="269.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Add Items" textFill="#fff112">
+        <Button blendMode="SRC_ATOP" layoutX="300.0" layoutY="375.0" mnemonicParsing="false" onAction="#onAddItemsClick" stylesheets="@../../../stylesheets/getStartedButton.css" text="Add Items" textAlignment="CENTER" textFill="#fff112">
+            <font>
+                <Font size="72.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow height="255.0" radius="127.0" spread="0.8" width="255.0" />
+            </effect>
+         <padding>
+            <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+         </padding>
+        </Button>
+      <Button blendMode="SRC_ATOP" layoutX="800.0" layoutY="375.0" mnemonicParsing="false" onAction="#onRemoveItemsClick" stylesheets="@../../../stylesheets/getStartedButton.css" text="Remove Items" textAlignment="CENTER" textFill="#fff112">
          <font>
-            <Font size="48.0" />
+            <Font size="72.0" />
          </font>
-         <effect>
-            <DropShadow height="255.0" radius="127.0" spread="0.88" width="255.0" />
-         </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-      </Button>
-      <Button layoutX="916.0" layoutY="432.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="350.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Remove Items" textFill="#fff112">
-         <font>
-            <Font size="48.0" />
-         </font>
          <effect>
-            <DropShadow height="255.0" radius="127.0" spread="0.88" width="255.0" />
+            <DropShadow height="255.0" radius="127.0" spread="0.8" width="255.0" />
          </effect>
+         <padding>
+            <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+         </padding>
+      </Button>
+      <Button blendMode="SRC_ATOP" layoutX="429.0" layoutY="551.0" mnemonicParsing="false" onAction="#onEditItemsClick" stylesheets="@../../../stylesheets/getStartedButton.css" text="Edit Exisitng Items" textAlignment="CENTER" textFill="#fff112">
+         <font>
+            <Font size="72.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow height="255.0" radius="127.0" spread="0.8" width="255.0" />
+         </effect>
+         <padding>
+            <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+         </padding>
       </Button>
     </children>
 </AnchorPane>

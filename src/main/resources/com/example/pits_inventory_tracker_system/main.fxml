@@ -33,7 +33,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="button1" layoutX="225.0" layoutY="40.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" prefHeight="47.0" prefWidth="263.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
+      <Button layoutX="225.0" layoutY="40.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -41,7 +41,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="501.0" layoutY="40.0" mnemonicParsing="false" onAction="#onLocationManagerClick" prefHeight="47.0" prefWidth="251.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
+      <Button layoutX="500.0" layoutY="40.0" mnemonicParsing="false" onAction="#onLocationManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -49,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="794.0" layoutY="40.0" mnemonicParsing="false" onAction="#onItemsManagerClick" prefHeight="47.0" prefWidth="199.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
+      <Button layoutX="775.0" layoutY="40.0" mnemonicParsing="false" onAction="#onItemsManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -57,7 +57,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1019.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSettingsClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
+      <Button layoutX="1000.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSettingsClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>
@@ -65,7 +65,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1166.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSearchClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
+      <Button layoutX="1150.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSearchClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font>

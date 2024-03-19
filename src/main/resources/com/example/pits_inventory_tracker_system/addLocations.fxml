@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pits_inventory_tracker_system.AddLocationsController">
+    <children>
+        <ImageView fitHeight="853.0" fitWidth="1520.0" layoutX="-1.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/IMG_4479.png" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="topBanner" arcHeight="5.0" arcWidth="5.0" fill="#0c1012" height="128.0" layoutX="-16.0" layoutY="-3.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1531.0" />
+
+        <Button layoutX="37.0" layoutY="16.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
+            <graphic>
+                <ImageView fitHeight="91.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/2046.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button layoutX="225.0" layoutY="40.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="500.0" layoutY="40.0" mnemonicParsing="false" onAction="#onLocationManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="775.0" layoutY="40.0" mnemonicParsing="false" onAction="#onItemsManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="1000.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSettingsClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="1150.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSearchClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
+            <font>
+                <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <TextField layoutX="646.0" layoutY="300.0" prefWidth="220.0" promptText="Name" stylesheets="@../../../stylesheets/textInput.css">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </TextField>
+        <TextField layoutX="646.0" layoutY="350.0" prefWidth="220.0" promptText="Description" stylesheets="@../../../stylesheets/textInput.css">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </TextField>
+        <Button layoutX="821.0" layoutY="400.0" mnemonicParsing="false" onAction="#onAddClick" stylesheets="@../../../stylesheets/actionButton.css" text="Add" textFill="#fff112">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button layoutX="646.0" layoutY="400.0" mnemonicParsing="false" onAction="#onClearClick" stylesheets="@../../../stylesheets/actionButton.css" text="Clear" textFill="#fff112">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button layoutX="63.0" layoutY="160.0" mnemonicParsing="false" onAction="#onBackClick" stylesheets="@../../../stylesheets/backButton.css" text="&lt; Back" textFill="#fff112">
+            <font>
+                <Font size="24.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+    </children>
+</AnchorPane>

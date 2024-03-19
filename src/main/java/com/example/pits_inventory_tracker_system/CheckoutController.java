@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 public class CheckoutController {
+    /*
     @FXML
     private javafx.scene.control.ComboBox<String> reason;
 
@@ -16,6 +17,8 @@ public class CheckoutController {
     public void initialize() {
         reason.setItems(reasonOptions);
     }
+
+     */
     PageLoader pageLoader = new PageLoader();
 
     @FXML
@@ -42,4 +45,8 @@ public class CheckoutController {
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
     @FXML
     protected void onBackClick(ActionEvent event) {pageLoader.openNewPage(event, "checkoutManager.fxml");};
+    @FXML
+    protected  void onClearClick(ActionEvent event) {pageLoader.openNewPage(event, "checkout.fxml");}
+    @FXML
+    protected void onCheckoutClick(ActionEvent event) {}
 }

@@ -33,6 +33,10 @@ public class MainController {
     }
     @FXML
     protected void onSearchClick(ActionEvent event) {pageLoader.openNewPage(event, "searchPage.fxml");}
+    @FXML
+    protected void onTest1Click(ActionEvent event) {pageLoader.openNewPage(event, "testSearchPageScrollable.fxml");}
+    @FXML
+    protected void onTest2Click(ActionEvent event) {pageLoader.openNewPage(event, "testSearchPageButtons.fxml");}
 
 
 }

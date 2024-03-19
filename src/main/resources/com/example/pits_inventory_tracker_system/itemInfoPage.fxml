@@ -7,13 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1512.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pits_inventory_tracker_system.ItemInfoController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="950.0" stroke="BLACK" strokeType="INSIDE" width="1514.0" />
+        <ImageView fitHeight="853.0" fitWidth="1520.0" layoutX="-1.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/IMG_4479.png" />
+            </image>
+        </ImageView>
         <Rectangle fx:id="topBanner" arcHeight="5.0" arcWidth="5.0" fill="#0c1012" height="128.0" layoutX="-16.0" layoutY="-3.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1531.0" />
 
-        <Button layoutX="36.0" layoutY="19.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
+        <Button layoutX="37.0" layoutY="16.0" mnemonicParsing="false" onAction="#onLogoClick" prefHeight="90.0" prefWidth="149.0" stylesheets="@../../../stylesheets/menuButtons.css">
             <graphic>
                 <ImageView fitHeight="91.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -23,8 +28,11 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
-            </graphic></Button>
-        <Button fx:id="button1" layoutX="225.0" layoutY="42.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" prefHeight="47.0" prefWidth="263.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button layoutX="225.0" layoutY="40.0" mnemonicParsing="false" onAction="#onCheckoutManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Checkout Manager" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -32,7 +40,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="501.0" layoutY="39.0" mnemonicParsing="false" onAction="#onLocationManagerClick" prefHeight="47.0" prefWidth="251.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
+        <Button layoutX="500.0" layoutY="40.0" mnemonicParsing="false" onAction="#onLocationManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Location Manager" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -40,7 +48,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="794.0" layoutY="42.0" mnemonicParsing="false" onAction="#onItemsManagerClick" prefHeight="47.0" prefWidth="199.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
+        <Button layoutX="775.0" layoutY="40.0" mnemonicParsing="false" onAction="#onItemsManagerClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Item Manager" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -48,7 +56,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="1019.0" layoutY="42.0" mnemonicParsing="false" onAction="#onSettingsClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
+        <Button layoutX="1000.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSettingsClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Settings" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -56,7 +64,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button layoutX="1166.0" layoutY="43.0" mnemonicParsing="false" onAction="#onSearchClick" prefHeight="47.0" prefWidth="128.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
+        <Button layoutX="1150.0" layoutY="40.0" mnemonicParsing="false" onAction="#onSearchClick" stylesheets="@../../../stylesheets/menuButtons.css" text="Search" textFill="#fff120">
             <font>
                 <Font name="Century Gothic" size="24.0" />
             </font>
@@ -64,66 +72,45 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <ImageView fitHeight="255.0" fitWidth="249.0" layoutX="177.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutY="124.0" mnemonicParsing="false" onAction="#onBackClick" stylesheets="@../../../stylesheets/menuButtons.css" text="&lt; Back" textFill="#fff112">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="254.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/bearmetal.jpeg" />
+            <Image url="@../../../images/null.png" />
          </image>
       </ImageView>
-      <Button fx:id="button11" layoutX="609.0" layoutY="346.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="118.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Name: " textFill="#fff120">
+      <Text fx:id="itemName" fill="#fff112" layoutX="611.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name">
          <font>
-            <Font name="Century Gothic" size="24.0" />
+            <Font size="35.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button111" layoutX="603.0" layoutY="407.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="150.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Locations:" textFill="#fff120">
+      </Text>
+      <Text fx:id="partNumber" fill="#fff112" layoutX="611.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Part Number:">
          <font>
-            <Font name="Century Gothic" size="24.0" />
+            <Font size="35.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button112" layoutX="603.0" layoutY="476.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="148.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Total QTY:" textFill="#fff120">
+      </Text>
+      <Text fx:id="location" fill="#fff112" layoutX="611.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
          <font>
-            <Font name="Century Gothic" size="24.0" />
+            <Font size="35.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button113" layoutX="603.0" layoutY="727.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="172.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Description:" textFill="#fff120">
+      </Text>
+      <Text fx:id="qty" fill="#fff112" layoutX="615.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QTY">
          <font>
-            <Font name="Century Gothic" size="24.0" />
+            <Font size="35.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button114" layoutX="607.0" layoutY="536.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="111.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Part#: " textFill="#fff120">
+      </Text>
+      <Text fx:id="vendor" fill="#fff112" layoutX="613.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vendor">
          <font>
-            <Font name="Century Gothic" size="24.0" />
+            <Font size="35.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button115" layoutX="606.0" layoutY="603.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="130.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Vendor:" textFill="#fff120">
+      </Text>
+      <Text fx:id="wtb" fill="#fff112" layoutX="616.0" layoutY="617.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WTB">
          <font>
-            <Font name="Century Gothic" size="24.0" />
+            <Font size="35.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="button116" layoutX="604.0" layoutY="662.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="141.0" stylesheets="@../../../stylesheets/menuButtons.css" text="Website:" textFill="#fff120">
-         <font>
-            <Font name="Century Gothic" size="24.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      </Text>
     </children>
 </AnchorPane>
